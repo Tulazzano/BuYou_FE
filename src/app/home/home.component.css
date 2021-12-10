@@ -1,0 +1,61 @@
+.bg_biblioteca{
+    color: white;
+    padding-top: 200px;
+    height: 400px;
+    background-image: url("/assets/img/Biblioteca.jpg");
+    background-size: cover;
+}
+
+.title{
+    
+    font-weight: bolder;
+}
+
+.carousel-control-next,
+.carousel-control-prev{
+    filter: invert(100%);
+}
+
+.transitions-left{
+    animation: on-load-from-right 2s ;
+}
+
+@keyframes on-load-from-right {
+    from{
+        transform: translateX(100%);
+        transform-origin: left;
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+.transitions-right{
+    animation: on-load-from-left 2s ;
+}
+
+@keyframes on-load-from-left {
+    from{
+        transform: translateX(-100%);
+        transform-origin: left;
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+.transitions-fade-in{
+    animation: on-load-fade-in 2s ;
+}
+
+@keyframes on-load-fade-in {
+    from{
+       opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

@@ -1,0 +1,58 @@
+.error-message{
+    font-size: x-small;
+}
+
+.example-radio-group {
+    display: flex;
+    flex-direction: row;
+}
+  
+.example-radio-button {
+    margin: 5px;
+}
+
+.bg-buYou{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.bg-buYou::before{
+    content: '';
+    position:absolute;
+    top:0px;
+    right: 0px;
+    bottom:0px;
+    left:0px;
+    background-image: url('/assets/img/buYou.png');
+    background-size: cover;
+    background-position: top center;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+}
+
+.bg-buYou:hover::before{
+    content: '';
+    position:absolute;
+    top:0px;
+    right: 0px;
+    bottom:0px;
+    left:0px;
+    background-image: url('/assets/img/buYou.png');
+    background-size: cover;
+    background-position: top center;
+    opacity: 0.2;
+    transition: opacity 1s ease-in-out;
+    
+}
+
+.bg-transparent{
+    position: relative;
+}
+
+.bg-white{
+    background-color: rgba(197, 197, 197, 0.219);
+    position: relative;
+}

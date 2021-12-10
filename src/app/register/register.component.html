@@ -1,0 +1,64 @@
+<div class="bg-buYou py-5">
+  <div class="row  mt-5 mb-3 bg-transparent">
+    <div class="border py-3 shadow-lg " style="background-color:rgba(231, 231, 231, 0.253); width:66vh;">
+      <h1>Register</h1>
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="mt-3">
+          <label for="nome">Nome</label><br>
+          <input type="text" class="border rounded-pill " [class.border-danger]="validatorBool('nome')" id="nome"
+            formControlName="nome">
+          <div *ngIf="validatorBool('nome')">
+            <span class="error-message text-danger"> Nome <span class="fw-bold"> required</span> </span>
+          </div>
+        </div>
+        <div class="mt-3">
+          <label for="cognome">Cognome</label><br>
+          <input type="text" class="border rounded-pill " [class.border-danger]="validatorBool('cognome')" id="cognome"
+            formControlName="cognome">
+          <div *ngIf="validatorBool('cognome')">
+            <span class="error-message text-danger"> Cognome <span class="fw-bold"> required</span> </span>
+          </div>
+        </div>
+        <div class="mt-3">
+          <label for="email">Email</label><br>
+          <input type="email" class="border rounded-pill " [class.border-danger]="validatorBool('email')" id="email"
+            formControlName="email">
+          <div *ngIf="validatorBool('email')">
+            <span class="error-message text-danger"> Email <span class="fw-bold"> required</span> </span>
+          </div>
+        </div>
+        <div class="mt-3">
+          <label for="username">Username</label><br>
+          <input type="text" class="border rounded-pill " [class.border-danger]="validatorBool('username')"
+            id="username" formControlName="username">
+          <div *ngIf="validatorBool('username')">
+            <span class="error-message text-danger"> Username <span class="fw-bold"> required</span> </span>
+          </div>
+        </div>
+        <div class="mt-3">
+          <label for="password">Password</label><br>
+          <input class="border rounded-pill" type="password" [class.border-danger]="validatorBool('password')"
+            id="password" formControlName="password">
+          <div *ngIf="validatorBool('password')">
+            <span class="error-message text-danger"> Password <span class="fw-bold"> required</span> </span>
+          </div>
+        </div>
+         <div class="mt-3">
+          <label id="example-radio-group-label">Tipo di account</label>
+          <mat-radio-group aria-labelledby="example-radio-group-label"
+            class="example-radio-group mt-1 " formControlName="userType" style="justify-content: center;">
+            <mat-radio-button class="example-radio-button" *ngFor="let type of types" [value]="type">
+              {{type}}
+            </mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <div *ngIf="validatorBool('userType')">
+          <span class="error-message text-danger"> Tipo <span class="fw-bold"> required</span> </span>
+        </div>
+        <button class="btn btn-primary mt-2 rounded-pill pt-1"
+          [disabled]=" validatorSubmitBool('nome','cognome','email','username','password','userType')"
+          type="submit">Registrati</button>
+      </form>
+    </div>
+  </div>
+</div>
