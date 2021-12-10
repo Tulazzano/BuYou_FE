@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 
@@ -15,7 +16,8 @@ export class LoginComponent implements OnInit {
     password: ['', Validators.required]
   });
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder,
+    private router: Router) { }
 
   ngOnInit() {
   }
@@ -24,6 +26,10 @@ export class LoginComponent implements OnInit {
     console.log(this.loginForm);
     console.log(this.loginForm.value);
     this.loginForm.reset();
+  }
+
+  goToRegister(){
+    this.router.navigateByUrl('register')
   }
 
   validatorBool(field: string) {
