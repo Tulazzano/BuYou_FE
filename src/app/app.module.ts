@@ -10,6 +10,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import { AppComponent } from './app.component';
 
 import { ApproutingModule, routingComponents } from './app-routing.module';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 
@@ -19,6 +20,7 @@ import { ApproutingModule, routingComponents } from './app-routing.module';
   declarations: [
     AppComponent,
     routingComponents,
+    PageNotFoundComponent,
     
   ],
   imports: [
