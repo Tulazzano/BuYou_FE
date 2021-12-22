@@ -10,14 +10,14 @@ export class AppComponent {
 
   title = 'BuYou';
 
-  constructor(private router: Router){}
+  constructor(private router: Router) { }
 
-  goToHome(){
+  goToHome() {
     this.router.navigateByUrl('home');
-}
+  }
 
-goToProduct(){
-  this.router.navigateByUrl('product');
-}
+  goToProduct() {
+    this.router.navigateByUrl('product');
+  }
 
 }

@@ -1,0 +1,8 @@
+<h1>Il tuo carrello</h1>
+<h4>I tuoi prodotti:</h4>
+<div class="cart-products">
+  <div *ngFor="let product of cartProducts">
+    <h6>{{product.title}} <span class="price">{{product.price}}</span>€ </h6>
+  </div>
+</div>
+<h4>Totale carrello: <span class="price">{{totale}}</span>€</h4>

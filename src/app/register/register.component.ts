@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { UserService } from 'src/util/user.service';
 
 @Component({
   selector: 'app-register',
@@ -8,18 +10,25 @@ import { FormBuilder, FormControl, Validators } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
 
+  BEres: string;
+  user: object;
+  roles = ['CUSTOMER', 'SELLER'];
+
   registerForm = this.formBuilder.group({
-    nome: ['', Validators.required],
-    cognome: ['', Validators.required],
+    firstName: ['', Validators.required],
+    lastName: ['', Validators.required],
     email: ['', Validators.required],
     username: ['', Validators.required],
     password: ['', Validators.required],
-    userType: ['', Validators.required]
+    roleType: ['', Validators.required]
   });
 
-  types : string[] = ['Buyer','Seller'];
 
-  constructor(private formBuilder: FormBuilder) { }
+
+  constructor(private formBuilder: FormBuilder,
+    private userservice: UserService,
+    private router: Router,
+  ) { }
 
   ngOnInit() {
   }
@@ -28,7 +37,21 @@ export class RegisterComponent implements OnInit {
   onSubmit(): void {
     console.log(this.registerForm);
     console.log(this.registerForm.value);
+    this.register();
     this.registerForm.reset();
+    this.router.navigateByUrl('');
+  }
+
+  register() {
+    this.userservice.userAdd(this.registerForm.value).subscribe(
+      data => this.BEres = data
+    );
+  }
+
+  all() {
+    this.userservice.getAllUser().subscribe(
+      data => this.user = data
+    );
   }
 
   validatorBool(field: string) {
@@ -46,9 +69,9 @@ export class RegisterComponent implements OnInit {
       return false;
     }
   }
-  
-  validatorSubmitBool(nome:string,cognome:string,email:string,username: string, password: string,type) {
-    if (this.validatorSubmitConditionBool(nome)||this.validatorSubmitConditionBool(cognome)||this.validatorSubmitConditionBool(email)||this.validatorSubmitConditionBool(username)||this.validatorSubmitConditionBool(password)||this.validatorSubmitConditionBool(type)){
+
+  validatorSubmitBool(firstName: string, lastName: string, email: string, username: string, password: string, role) {
+    if (this.validatorSubmitConditionBool(firstName) || this.validatorSubmitConditionBool(lastName) || this.validatorSubmitConditionBool(email) || this.validatorSubmitConditionBool(username) || this.validatorSubmitConditionBool(password) || this.validatorSubmitConditionBool(role)) {
       return true;
     } else {
       return false;

@@ -1,5 +1,7 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from '@angular/router';
+import { CartComponent } from "./cart/cart.component";
+import { DetailComponent } from "./detail/detail.component";
 import { HomeComponent } from "./home/home.component";
 import { LoginComponent } from "./login/login.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
@@ -11,6 +13,8 @@ const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'product', component: ProductComponent },
+    { path: 'detail/:productId', component: DetailComponent},
+    { path: 'cart', component: CartComponent },
 
     { path: '**', component: PageNotFoundComponent },
 ];
@@ -20,4 +24,4 @@ const routes: Routes = [
     exports: [RouterModule]
 })
 export class ApproutingModule { }
-export const routingComponents = [LoginComponent, HomeComponent, RegisterComponent, ProductComponent, PageNotFoundComponent];
+export const routingComponents = [LoginComponent, HomeComponent, RegisterComponent, ProductComponent, PageNotFoundComponent,DetailComponent,CartComponent];

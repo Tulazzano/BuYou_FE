@@ -19,12 +19,13 @@
       <div *ngIf="validatorBool('password')">
         <span class="error-message text-danger"> Password <span class="fw-bold"> required</span> </span>
       </div>
-      <button class="btn btn-primary mt-2 rounded-pill pt-1" [disabled]=" validatorSubmitBool('username','password')" type="submit">Login</button>
+      <button class="btn btn-primary mt-2 rounded-pill pt-1" [disabled]=" validatorSubmitBool('username','password')" type="submit" >Login</button>
     </form>
     <span>
       Non sei ancora registrato? <br>
-      <a href="" (click)="goToRegister()">Crea un account</a>
+      <a  (click)="goToRegister()">Crea un account</a>
     </span>
   </div>
 </div>
 </div>
+{{user |json}}

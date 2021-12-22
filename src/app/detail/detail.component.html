@@ -1,0 +1,33 @@
+<div>
+  <div *ngFor="let product of products">
+    <div *ngIf="product.id==productId">
+      <div class="flex-row">
+        <div class="container">
+          <img [src]="getImgPath(product.image)" class="product-image">
+          <div class="product-info">
+            <h3>
+              {{product.title}}
+            </h3>
+            <h5 style="margin-top: 20px;">
+              Autore: {{product.author}}
+            </h5>
+            <h5>
+              Genere: {{product.category}}
+            </h5>
+            <h5>
+              Prezzo: {{product.price}} €
+            </h5>
+            <p> <span class="bold">Trama: </span>{{product.plot}}</p>
+          </div>
+          <div class="cart">
+            <h4>
+              Aggiungi al carrello
+            </h4>
+            <button class="cart-btn" (click)="addToCart(product)">Aggiungi</button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>

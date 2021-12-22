@@ -11,6 +11,9 @@ import { AppComponent } from './app.component';
 
 import { ApproutingModule, routingComponents } from './app-routing.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HttpClientModule, HttpHeaders } from '@angular/common/http';
+import { DetailComponent } from './detail/detail.component';
+import { CartComponent } from './cart/cart.component';
 
 
 
@@ -21,6 +24,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     AppComponent,
     routingComponents,
     PageNotFoundComponent,
+    DetailComponent,
+    CartComponent,
     
   ],
   imports: [
@@ -31,7 +36,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     FormsModule,
     ReactiveFormsModule,
     ApproutingModule,
-    MatRadioModule
+    MatRadioModule,
+    HttpClientModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,9 @@
+.price{
+    color: rgb(212, 37, 37);
+    font-weight: lighter;
+}
+
+.cart-products{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
